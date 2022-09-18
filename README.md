@@ -1,4 +1,4 @@
-# Game List App
+# Game List iOS App
 This is the project where I developed game list app to learn VIPER architecture, UIKit and Swift and networking.
 
 List games on a grid and shows details for each game when clicked on a cell. Games can be wishlisted and removed from the wishlist.

@@ -1,8 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="20037" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="h8o-vq-UIV">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="22505" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="h8o-vq-UIV">
     <device id="retina6_7" orientation="portrait" appearance="dark"/>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="20020"/>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="22504"/>
         <capability name="Image references" minToolsVersion="12.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="Stack View standard spacing" minToolsVersion="9.0"/>
@@ -14,19 +15,19 @@
         <!--Game Detail-->
         <scene sceneID="V4g-MW-x0d">
             <objects>
-                <viewController storyboardIdentifier="DetailViewController" title="Game Detail" id="ixe-er-IZm" customClass="DetailViewController" customModule="GameListAppWithUIKit" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="DetailViewController" title="Game Detail" id="ixe-er-IZm" customClass="DetailViewController" customModule="GameListAppWithUIKit" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="tkJ-cd-Cod">
                         <rect key="frame" x="0.0" y="0.0" width="428" height="926"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <imageView hidden="YES" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="mOV-VY-cvb">
-                                <rect key="frame" x="0.0" y="43.999999999999986" width="428" height="240.66666666666663"/>
+                                <rect key="frame" x="0.0" y="46.999999999999986" width="428" height="240.66666666666663"/>
                                 <constraints>
                                     <constraint firstAttribute="width" secondItem="mOV-VY-cvb" secondAttribute="height" multiplier="16:9" id="waf-Cu-jzw"/>
                                 </constraints>
                             </imageView>
                             <label hidden="YES" opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="252" verticalHuggingPriority="251" usesAttributedText="YES" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="FJs-mi-i0L">
-                                <rect key="frame" x="16" y="300.66666666666669" width="359" height="23.333333333333314"/>
+                                <rect key="frame" x="16" y="303.66666666666669" width="359" height="23.333333333333314"/>
                                 <attributedString key="attributedText">
                                     <fragment content="Game Name">
                                         <attributes>
@@ -39,7 +40,7 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <label hidden="YES" opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" usesAttributedText="YES" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="oWU-wf-5uw">
-                                <rect key="frame" x="387" y="300.66666666666669" width="25" height="16.333333333333314"/>
+                                <rect key="frame" x="387" y="303.66666666666669" width="25" height="16.333333333333314"/>
                                 <attributedString key="attributedText">
                                     <fragment content="50">
                                         <attributes>
@@ -52,7 +53,7 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="NMP-fL-fDx">
-                                <rect key="frame" x="16" y="333" width="396" height="559"/>
+                                <rect key="frame" x="16" y="336" width="396" height="556"/>
                                 <subviews>
                                     <stackView hidden="YES" opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" spacing="16" translatesAutoresizingMaskIntoConstraints="NO" id="OJ4-gB-bcg">
                                         <rect key="frame" x="0.0" y="0.0" width="396" height="559"/>
@@ -455,7 +456,7 @@
         <!--Games-->
         <scene sceneID="b3E-x6-MIF">
             <objects>
-                <viewController storyboardIdentifier="HomeViewController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="wek-IY-Ncf" customClass="HomeViewController" customModule="GameListAppWithUIKit" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="HomeViewController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="wek-IY-Ncf" customClass="HomeViewController" customModule="GameListAppWithUIKit" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="TGV-Gu-BsZ">
                         <rect key="frame" x="0.0" y="0.0" width="428" height="926"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -545,7 +546,7 @@
                                     <inset key="sectionInset" minX="10" minY="10" maxX="10" maxY="10"/>
                                 </collectionViewFlowLayout>
                                 <cells>
-                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="Cell" id="puJ-cz-PsA" customClass="CollectionViewCell" customModule="GameListAppWithUIKit" customModuleProvider="target">
+                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="CollectionViewCell" id="puJ-cz-PsA" customClass="CollectionViewCell" customModule="GameListAppWithUIKit">
                                         <rect key="frame" x="10" y="10" width="190" height="270"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <collectionViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" id="5Wx-XS-Rua">
@@ -610,7 +611,7 @@
                                             </userDefinedRuntimeAttribute>
                                         </userDefinedRuntimeAttributes>
                                         <connections>
-                                            <outlet property="backgroundImage" destination="TPU-a2-FNA" id="LsM-Kf-6TJ"/>
+                                            <outlet property="backgroundImage" destination="TPU-a2-FNA" id="Yb6-1u-N4h"/>
                                             <outlet property="gameTitle" destination="XyN-rO-xuE" id="Hr9-VR-5yr"/>
                                             <outlet property="wishlistButton" destination="GaM-Z4-Flk" id="knZ-Ge-N8Z"/>
                                         </connections>
@@ -658,7 +659,7 @@
                     <tabBarItem key="tabBarItem" title="Games" image="gamecontroller" catalog="system" id="jXy-sE-E06"/>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="tFG-Ei-yqW">
-                        <rect key="frame" x="0.0" y="44" width="428" height="44"/>
+                        <rect key="frame" x="0.0" y="47" width="428" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
                     <nil name="viewControllers"/>
@@ -677,7 +678,7 @@
                     <tabBarItem key="tabBarItem" title="Wishlist" image="gift" catalog="system" id="mcL-4d-UZq"/>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="CWP-Mu-TW9">
-                        <rect key="frame" x="0.0" y="44" width="428" height="44"/>
+                        <rect key="frame" x="0.0" y="47" width="428" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
                     <nil name="viewControllers"/>
@@ -692,14 +693,13 @@
         <!--Wishlist-->
         <scene sceneID="F6f-SN-g07">
             <objects>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="7pP-ZV-ibS" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
-                <viewController storyboardIdentifier="HomeWishlistViewController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="2U2-EX-Xv4" customClass="HomeWishlistViewController" customModule="GameListAppWithUIKit" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="WishlistViewController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="2U2-EX-Xv4" customClass="WishlistViewController" customModule="GameListAppWithUIKit" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="Lww-wq-FPL">
                         <rect key="frame" x="0.0" y="0.0" width="428" height="926"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <label hidden="YES" opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" usesAttributedText="YES" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hBf-gV-Hr7">
-                                <rect key="frame" x="70" y="276" width="288.33333333333331" height="21"/>
+                                <rect key="frame" x="70" y="279" width="288.33333333333331" height="21"/>
                                 <attributedString key="attributedText">
                                     <fragment content="No wishlisted game has been found">
                                         <attributes>
@@ -721,7 +721,7 @@
                                     <inset key="sectionInset" minX="10" minY="10" maxX="10" maxY="10"/>
                                 </collectionViewFlowLayout>
                                 <cells>
-                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="Cell" id="P7i-Sv-PGG" customClass="CollectionViewCell" customModule="GameListAppWithUIKit" customModuleProvider="target">
+                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="CollectionViewCell" id="P7i-Sv-PGG" customClass="CollectionViewCell" customModule="GameListAppWithUIKit">
                                         <rect key="frame" x="10" y="10" width="190" height="270"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <collectionViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" id="2d7-jP-zyU">
@@ -817,14 +817,15 @@
                         <outlet property="emptyViewLabel" destination="hBf-gV-Hr7" id="mUQ-Jv-bIr"/>
                     </connections>
                 </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="7pP-ZV-ibS" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="-2983.1775700934577" y="-2663.0669546436288"/>
         </scene>
     </scenes>
     <resources>
-        <image name="chevron.right" catalog="system" width="96" height="128"/>
-        <image name="gamecontroller" catalog="system" width="128" height="80"/>
-        <image name="gift" catalog="system" width="128" height="124"/>
+        <image name="chevron.right" catalog="system" width="97" height="128"/>
+        <image name="gamecontroller" catalog="system" width="128" height="79"/>
+        <image name="gift" catalog="system" width="128" height="125"/>
         <systemColor name="labelColor">
             <color white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>

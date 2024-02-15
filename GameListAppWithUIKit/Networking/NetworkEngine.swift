@@ -15,6 +15,8 @@ class NetworkEngine {
     /// - completion: the JSON response converted to provided Codable object, if successful, or failure otherwise
     //1
     
+    static let session = URLSession(configuration: .default)
+    
     class func request<T: Codable>(endpoint: Endpoint, completion: @escaping (Result<T, Error>) -> ()) {
         //2
         var components = URLComponents()
@@ -34,7 +36,6 @@ class NetworkEngine {
         urlRequest.httpMethod = endpoint.method
                 
         //5
-        let session = URLSession(configuration: .default)
         let dataTask = session.dataTask(with: urlRequest, completionHandler: { data, response, error in
             
             //6 

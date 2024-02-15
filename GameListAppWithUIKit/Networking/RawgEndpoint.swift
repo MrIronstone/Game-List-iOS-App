@@ -45,7 +45,7 @@ enum RAWGEndpoint: Endpoint {
     }
     
     var parameters: [URLQueryItem] {
-        let apiKey = "cb7958d1969d436cacf6f87b2f0b6660"
+        let apiKey = "ec51b655020540038116005d4738f48c"
         
         switch self {
             // tüm oyunlar ve sayfa için
@@ -70,15 +70,7 @@ enum RAWGEndpoint: Endpoint {
     
     var method: String {
         switch self {
-        case .getAllGames:
-            return "GET"
-        case .getGame:
-            return "GET"
-        case .getSearchResult:
-            return "GET"
-        case .getAllPlatforms:
-            return "GET"
-        case .getResultsOfTextAndFilter:
+        default:
             return "GET"
         }
     }

@@ -23,17 +23,17 @@ struct RawgPlatformsResponse: Codable {
 
 struct RawgGameResponse: Codable {
     let id: Int
-    let name:String?
-    let description_raw:String?
-    let released: String
-    let metacritic:Double?
+    let name: String?
+    let description_raw: String?
+    let released: String?
+    let metacritic: Double?
     let playtime: Int?
     let genres: [Genre]?
     let parent_platforms: [Platform]?
     let publishers: [Publisher]?
-    let background_image:String?
-    let reddit_url:String?
-    let website:String?
+    let background_image: String?
+    let reddit_url: String?
+    let website: String?
 }
 
 struct Publisher: Codable {

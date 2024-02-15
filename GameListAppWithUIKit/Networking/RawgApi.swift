@@ -8,7 +8,7 @@
 import Foundation
 
 class RawgApi {
-    func getAllGamesAtPage(requestedPage:Int)  {
+    func getAllGamesAtPage(requestedPage: Int)  {
                         
         NetworkEngine.request(endpoint: RAWGEndpoint.getAllGames(page: requestedPage)) { (result: Result<RawgGamesResponse, Error>) in
             switch result {

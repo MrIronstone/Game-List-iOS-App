@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<model type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="22522" systemVersion="23D56" minimumToolsVersion="Automatic" sourceLanguage="Swift" usedWithSwiftData="YES" userDefinedModelVersionIdentifier="">
+    <entity name="GameEntity" representedClassName="GameEntity" syncable="YES" codeGenerationType="class">
+        <attribute name="background_image" optional="YES" attributeType="String"/>
+        <attribute name="description_raw" optional="YES" attributeType="String"/>
+        <attribute name="id" optional="YES" attributeType="Integer 16" defaultValueString="0" usesScalarValueType="YES"/>
+        <attribute name="metacritic" optional="YES" attributeType="Double" defaultValueString="0.0" usesScalarValueType="YES"/>
+        <attribute name="name" optional="YES" attributeType="String"/>
+        <attribute name="playtime" optional="YES" attributeType="Integer 16" defaultValueString="0" usesScalarValueType="YES"/>
+        <attribute name="reddit_url" optional="YES" attributeType="String"/>
+        <attribute name="released" optional="YES" attributeType="String"/>
+        <attribute name="website" optional="YES" attributeType="String"/>
+        <relationship name="genre" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="GenreEntity" inverseName="game" inverseEntity="GenreEntity"/>
+        <relationship name="platform" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="PlatformEntity" inverseName="game" inverseEntity="PlatformEntity"/>
+        <relationship name="publisher" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="PublisherEntity" inverseName="game" inverseEntity="PublisherEntity"/>
+    </entity>
+    <entity name="GenreEntity" representedClassName="GenreEntity" syncable="YES" codeGenerationType="class">
+        <attribute name="id" optional="YES" attributeType="Integer 16" defaultValueString="0" usesScalarValueType="YES"/>
+        <attribute name="name" optional="YES" attributeType="String"/>
+        <relationship name="game" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="GameEntity" inverseName="genre" inverseEntity="GameEntity"/>
+    </entity>
+    <entity name="PlatformEntity" representedClassName="PlatformEntity" syncable="YES" codeGenerationType="class">
+        <attribute name="id" optional="YES" attributeType="Integer 16" defaultValueString="0" usesScalarValueType="YES"/>
+        <attribute name="name" optional="YES" attributeType="String"/>
+        <relationship name="game" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="GameEntity" inverseName="platform" inverseEntity="GameEntity"/>
+    </entity>
+    <entity name="PublisherEntity" representedClassName="PublisherEntity" syncable="YES" codeGenerationType="class">
+        <attribute name="id" optional="YES" attributeType="Integer 16" defaultValueString="0" usesScalarValueType="YES"/>
+        <attribute name="name" optional="YES" attributeType="String"/>
+        <relationship name="game" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="GameEntity" inverseName="publisher" inverseEntity="GameEntity"/>
+    </entity>
+</model>

@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		8439EA542B6A464100ED7616 /* UIImageView+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8439EA532B6A464100ED7616 /* UIImageView+Extension.swift */; };
+		844165B42B7130F000ED0E92 /* CollectionViewCellPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 844165B32B7130F000ED0E92 /* CollectionViewCellPresenter.swift */; };
 		8484270E286DFB8E0096611F /* Endpoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8484270D286DFB8E0096611F /* Endpoint.swift */; };
 		84842710286DFD6B0096611F /* RawgEndpoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8484270F286DFD6B0096611F /* RawgEndpoint.swift */; };
 		84842712286E40CC0096611F /* RawgModels.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84842711286E40CC0096611F /* RawgModels.swift */; };
@@ -19,10 +21,20 @@
 		8484275428779F350096611F /* HomePresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8484275328779F350096611F /* HomePresenter.swift */; };
 		848427562877ABEE0096611F /* HomeRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 848427552877ABEE0096611F /* HomeRouter.swift */; };
 		8484275C28789A320096611F /* DetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8484275B28789A320096611F /* DetailViewController.swift */; };
-		849D38D52889B5CB00609C31 /* HomeWishlistViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 849D38D42889B5CB00609C31 /* HomeWishlistViewController.swift */; };
+		8492FD502B6C50AF009BD365 /* Kingfisher in Frameworks */ = {isa = PBXBuildFile; productRef = 8492FD4F2B6C50AF009BD365 /* Kingfisher */; };
+		8492FD532B6D8200009BD365 /* FavoriteGamesDataModel.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 8492FD512B6D8200009BD365 /* FavoriteGamesDataModel.xcdatamodeld */; };
+		8492FD572B6FC981009BD365 /* FavoriteManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8492FD562B6FC981009BD365 /* FavoriteManager.swift */; };
+		849D38D52889B5CB00609C31 /* WishlistViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 849D38D42889B5CB00609C31 /* WishlistViewController.swift */; };
 		849D38DC288C81D500609C31 /* SingletonPatterns.swift in Sources */ = {isa = PBXBuildFile; fileRef = 849D38DB288C81D500609C31 /* SingletonPatterns.swift */; };
 		849D38DE288CADB300609C31 /* NotificationCenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 849D38DD288CADB300609C31 /* NotificationCenter.swift */; };
 		849D38E0288D9B6800609C31 /* FilterCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 849D38DF288D9B6800609C31 /* FilterCell.swift */; };
+		84A2D7F52B739E3600D7C87C /* WishlistPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84A2D7F42B739E3600D7C87C /* WishlistPresenter.swift */; };
+		84A2D7F72B74489500D7C87C /* WishlistInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84A2D7F62B74489500D7C87C /* WishlistInteractor.swift */; };
+		84A2D7F92B7453E400D7C87C /* WishlistRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84A2D7F82B7453E400D7C87C /* WishlistRouter.swift */; };
+		84A2D7FB2B7A9C8700D7C87C /* TabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84A2D7FA2B7A9C8700D7C87C /* TabBarController.swift */; };
+		84A2D7FD2B7BBBF200D7C87C /* DetailPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84A2D7FC2B7BBBF200D7C87C /* DetailPresenter.swift */; };
+		84A2D7FF2B7BBC0D00D7C87C /* DetailInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84A2D7FE2B7BBC0D00D7C87C /* DetailInteractor.swift */; };
+		84A2D8012B7BBC1500D7C87C /* DetailRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84A2D8002B7BBC1500D7C87C /* DetailRouter.swift */; };
 		84D31C85286CBF83001D1335 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84D31C84286CBF83001D1335 /* AppDelegate.swift */; };
 		84D31C87286CBF83001D1335 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84D31C86286CBF83001D1335 /* SceneDelegate.swift */; };
 		84D31C89286CBF83001D1335 /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84D31C88286CBF83001D1335 /* HomeViewController.swift */; };
@@ -32,6 +44,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		8439EA532B6A464100ED7616 /* UIImageView+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIImageView+Extension.swift"; sourceTree = "<group>"; };
+		844165B32B7130F000ED0E92 /* CollectionViewCellPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CollectionViewCellPresenter.swift; sourceTree = "<group>"; };
 		8484270D286DFB8E0096611F /* Endpoint.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Endpoint.swift; sourceTree = "<group>"; };
 		8484270F286DFD6B0096611F /* RawgEndpoint.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RawgEndpoint.swift; sourceTree = "<group>"; };
 		84842711286E40CC0096611F /* RawgModels.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RawgModels.swift; sourceTree = "<group>"; };
@@ -44,10 +58,19 @@
 		8484275328779F350096611F /* HomePresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomePresenter.swift; sourceTree = "<group>"; };
 		848427552877ABEE0096611F /* HomeRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeRouter.swift; sourceTree = "<group>"; };
 		8484275B28789A320096611F /* DetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailViewController.swift; sourceTree = "<group>"; };
-		849D38D42889B5CB00609C31 /* HomeWishlistViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeWishlistViewController.swift; sourceTree = "<group>"; };
+		8492FD522B6D8200009BD365 /* FavoriteGamesDataModel.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = FavoriteGamesDataModel.xcdatamodel; sourceTree = "<group>"; };
+		8492FD562B6FC981009BD365 /* FavoriteManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoriteManager.swift; sourceTree = "<group>"; };
+		849D38D42889B5CB00609C31 /* WishlistViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WishlistViewController.swift; sourceTree = "<group>"; };
 		849D38DB288C81D500609C31 /* SingletonPatterns.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SingletonPatterns.swift; sourceTree = "<group>"; };
 		849D38DD288CADB300609C31 /* NotificationCenter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NotificationCenter.swift; sourceTree = "<group>"; };
 		849D38DF288D9B6800609C31 /* FilterCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FilterCell.swift; sourceTree = "<group>"; };
+		84A2D7F42B739E3600D7C87C /* WishlistPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WishlistPresenter.swift; sourceTree = "<group>"; };
+		84A2D7F62B74489500D7C87C /* WishlistInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WishlistInteractor.swift; sourceTree = "<group>"; };
+		84A2D7F82B7453E400D7C87C /* WishlistRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WishlistRouter.swift; sourceTree = "<group>"; };
+		84A2D7FA2B7A9C8700D7C87C /* TabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarController.swift; sourceTree = "<group>"; };
+		84A2D7FC2B7BBBF200D7C87C /* DetailPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailPresenter.swift; sourceTree = "<group>"; };
+		84A2D7FE2B7BBC0D00D7C87C /* DetailInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailInteractor.swift; sourceTree = "<group>"; };
+		84A2D8002B7BBC1500D7C87C /* DetailRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailRouter.swift; sourceTree = "<group>"; };
 		84D31C81286CBF83001D1335 /* GameListAppWithUIKit.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = GameListAppWithUIKit.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		84D31C84286CBF83001D1335 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		84D31C86286CBF83001D1335 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -63,12 +86,36 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				8492FD502B6C50AF009BD365 /* Kingfisher in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		8439EA522B6A461800ED7616 /* Utility */ = {
+			isa = PBXGroup;
+			children = (
+				849D38DB288C81D500609C31 /* SingletonPatterns.swift */,
+				849D38DD288CADB300609C31 /* NotificationCenter.swift */,
+				8439EA532B6A464100ED7616 /* UIImageView+Extension.swift */,
+				8492FD512B6D8200009BD365 /* FavoriteGamesDataModel.xcdatamodeld */,
+				8492FD562B6FC981009BD365 /* FavoriteManager.swift */,
+			);
+			path = Utility;
+			sourceTree = "<group>";
+		};
+		844165B22B712F1B00ED0E92 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				8484274F28772FA60096611F /* HomeCollectionViewController.swift */,
+				84842715286E7FF60096611F /* CollectionViewCell.swift */,
+				844165B32B7130F000ED0E92 /* CollectionViewCellPresenter.swift */,
+				849D38DF288D9B6800609C31 /* FilterCell.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
 		8484270C286DC6600096611F /* Networking */ = {
 			isa = PBXGroup;
 			children = (
@@ -95,6 +142,7 @@
 			children = (
 				84D31C84286CBF83001D1335 /* AppDelegate.swift */,
 				84D31C86286CBF83001D1335 /* SceneDelegate.swift */,
+				84A2D7FA2B7A9C8700D7C87C /* TabBarController.swift */,
 			);
 			path = App;
 			sourceTree = "<group>";
@@ -102,66 +150,35 @@
 		84842719286E84C20096611F /* HomeModule */ = {
 			isa = PBXGroup;
 			children = (
-				8484271A286E84D80096611F /* View */,
-				8484271B286E84EE0096611F /* Interactor */,
-				8484271C286E85030096611F /* Presenter */,
-				8484271F286EC4890096611F /* Protocols */,
-				8484271D286E85330096611F /* Entity */,
-				8484271E286E85430096611F /* Router */,
+				84D31C88286CBF83001D1335 /* HomeViewController.swift */,
+				8484275128779EEF0096611F /* HomeInteractor.swift */,
+				8484275328779F350096611F /* HomePresenter.swift */,
+				848427552877ABEE0096611F /* HomeRouter.swift */,
+				84842720286EC4A30096611F /* HomeProtocols.swift */,
 			);
 			path = HomeModule;
 			sourceTree = "<group>";
 		};
-		8484271A286E84D80096611F /* View */ = {
+		8492FD542B6D9F09009BD365 /* WishlistModule */ = {
 			isa = PBXGroup;
 			children = (
-				84842715286E7FF60096611F /* CollectionViewCell.swift */,
-				84D31C88286CBF83001D1335 /* HomeViewController.swift */,
-				8484274F28772FA60096611F /* HomeCollectionViewController.swift */,
+				849D38D42889B5CB00609C31 /* WishlistViewController.swift */,
+				84A2D7F42B739E3600D7C87C /* WishlistPresenter.swift */,
+				84A2D7F62B74489500D7C87C /* WishlistInteractor.swift */,
+				84A2D7F82B7453E400D7C87C /* WishlistRouter.swift */,
+			);
+			path = WishlistModule;
+			sourceTree = "<group>";
+		};
+		8492FD552B6D9F11009BD365 /* DetailModule */ = {
+			isa = PBXGroup;
+			children = (
 				8484275B28789A320096611F /* DetailViewController.swift */,
-				849D38D42889B5CB00609C31 /* HomeWishlistViewController.swift */,
-				849D38DF288D9B6800609C31 /* FilterCell.swift */,
+				84A2D7FC2B7BBBF200D7C87C /* DetailPresenter.swift */,
+				84A2D7FE2B7BBC0D00D7C87C /* DetailInteractor.swift */,
+				84A2D8002B7BBC1500D7C87C /* DetailRouter.swift */,
 			);
-			path = View;
-			sourceTree = "<group>";
-		};
-		8484271B286E84EE0096611F /* Interactor */ = {
-			isa = PBXGroup;
-			children = (
-				8484275128779EEF0096611F /* HomeInteractor.swift */,
-			);
-			path = Interactor;
-			sourceTree = "<group>";
-		};
-		8484271C286E85030096611F /* Presenter */ = {
-			isa = PBXGroup;
-			children = (
-				8484275328779F350096611F /* HomePresenter.swift */,
-			);
-			path = Presenter;
-			sourceTree = "<group>";
-		};
-		8484271D286E85330096611F /* Entity */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = Entity;
-			sourceTree = "<group>";
-		};
-		8484271E286E85430096611F /* Router */ = {
-			isa = PBXGroup;
-			children = (
-				848427552877ABEE0096611F /* HomeRouter.swift */,
-			);
-			path = Router;
-			sourceTree = "<group>";
-		};
-		8484271F286EC4890096611F /* Protocols */ = {
-			isa = PBXGroup;
-			children = (
-				84842720286EC4A30096611F /* HomeProtocols.swift */,
-			);
-			path = Protocols;
+			path = DetailModule;
 			sourceTree = "<group>";
 		};
 		84D31C78286CBF83001D1335 = {
@@ -183,14 +200,16 @@
 		84D31C83286CBF83001D1335 /* GameListAppWithUIKit */ = {
 			isa = PBXGroup;
 			children = (
+				8439EA522B6A461800ED7616 /* Utility */,
+				844165B22B712F1B00ED0E92 /* View */,
 				84842719286E84C20096611F /* HomeModule */,
+				8492FD552B6D9F11009BD365 /* DetailModule */,
+				8492FD542B6D9F09009BD365 /* WishlistModule */,
 				84842718286E84840096611F /* App */,
 				84842717286E84760096611F /* Storyboards */,
 				8484270C286DC6600096611F /* Networking */,
 				84D31C8D286CBF87001D1335 /* Assets.xcassets */,
 				84D31C92286CBF87001D1335 /* Info.plist */,
-				849D38DB288C81D500609C31 /* SingletonPatterns.swift */,
-				849D38DD288CADB300609C31 /* NotificationCenter.swift */,
 			);
 			path = GameListAppWithUIKit;
 			sourceTree = "<group>";
@@ -211,6 +230,9 @@
 			dependencies = (
 			);
 			name = GameListAppWithUIKit;
+			packageProductDependencies = (
+				8492FD4F2B6C50AF009BD365 /* Kingfisher */,
+			);
 			productName = GameListAppWithUIKit;
 			productReference = 84D31C81286CBF83001D1335 /* GameListAppWithUIKit.app */;
 			productType = "com.apple.product-type.application";
@@ -223,7 +245,7 @@
 			attributes = {
 				BuildIndependentTargetsInParallel = 1;
 				LastSwiftUpdateCheck = 1340;
-				LastUpgradeCheck = 1340;
+				LastUpgradeCheck = 1520;
 				TargetAttributes = {
 					84D31C80286CBF83001D1335 = {
 						CreatedOnToolsVersion = 13.4.1;
@@ -239,6 +261,9 @@
 				Base,
 			);
 			mainGroup = 84D31C78286CBF83001D1335;
+			packageReferences = (
+				8492FD4E2B6C50AF009BD365 /* XCRemoteSwiftPackageReference "Kingfisher" */,
+			);
 			productRefGroup = 84D31C82286CBF83001D1335 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -269,17 +294,28 @@
 				849D38E0288D9B6800609C31 /* FilterCell.swift in Sources */,
 				8484275028772FA60096611F /* HomeCollectionViewController.swift in Sources */,
 				8484275C28789A320096611F /* DetailViewController.swift in Sources */,
+				84A2D7FB2B7A9C8700D7C87C /* TabBarController.swift in Sources */,
+				84A2D7F92B7453E400D7C87C /* WishlistRouter.swift in Sources */,
 				84842716286E7FF60096611F /* CollectionViewCell.swift in Sources */,
 				84842710286DFD6B0096611F /* RawgEndpoint.swift in Sources */,
+				844165B42B7130F000ED0E92 /* CollectionViewCellPresenter.swift in Sources */,
+				8492FD572B6FC981009BD365 /* FavoriteManager.swift in Sources */,
+				84A2D7FF2B7BBC0D00D7C87C /* DetailInteractor.swift in Sources */,
 				848427562877ABEE0096611F /* HomeRouter.swift in Sources */,
 				84D31C89286CBF83001D1335 /* HomeViewController.swift in Sources */,
-				849D38D52889B5CB00609C31 /* HomeWishlistViewController.swift in Sources */,
+				849D38D52889B5CB00609C31 /* WishlistViewController.swift in Sources */,
+				84A2D7F72B74489500D7C87C /* WishlistInteractor.swift in Sources */,
 				849D38DE288CADB300609C31 /* NotificationCenter.swift in Sources */,
+				84A2D8012B7BBC1500D7C87C /* DetailRouter.swift in Sources */,
 				84842712286E40CC0096611F /* RawgModels.swift in Sources */,
+				8439EA542B6A464100ED7616 /* UIImageView+Extension.swift in Sources */,
 				84842721286EC4A30096611F /* HomeProtocols.swift in Sources */,
 				8484275428779F350096611F /* HomePresenter.swift in Sources */,
 				8484275228779EEF0096611F /* HomeInteractor.swift in Sources */,
+				84A2D7FD2B7BBBF200D7C87C /* DetailPresenter.swift in Sources */,
 				84842723286EE0A00096611F /* NetworkEngine.swift in Sources */,
+				84A2D7F52B739E3600D7C87C /* WishlistPresenter.swift in Sources */,
+				8492FD532B6D8200009BD365 /* FavoriteGamesDataModel.xcdatamodeld in Sources */,
 				849D38DC288C81D500609C31 /* SingletonPatterns.swift in Sources */,
 				84D31C85286CBF83001D1335 /* AppDelegate.swift in Sources */,
 				8484270E286DFB8E0096611F /* Endpoint.swift in Sources */,
@@ -346,6 +382,7 @@
 				DEBUG_INFORMATION_FORMAT = dwarf;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				ENABLE_TESTABILITY = YES;
+				ENABLE_USER_SCRIPT_SANDBOXING = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu11;
 				GCC_DYNAMIC_NO_PIC = NO;
 				GCC_NO_COMMON_BLOCKS = YES;
@@ -406,6 +443,7 @@
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				ENABLE_NS_ASSERTIONS = NO;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_USER_SCRIPT_SANDBOXING = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu11;
 				GCC_NO_COMMON_BLOCKS = YES;
 				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
@@ -502,6 +540,38 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		8492FD4E2B6C50AF009BD365 /* XCRemoteSwiftPackageReference "Kingfisher" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/onevcat/Kingfisher.git";
+			requirement = {
+				kind = exactVersion;
+				version = 7.6.2;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		8492FD4F2B6C50AF009BD365 /* Kingfisher */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 8492FD4E2B6C50AF009BD365 /* XCRemoteSwiftPackageReference "Kingfisher" */;
+			productName = Kingfisher;
+		};
+/* End XCSwiftPackageProductDependency section */
+
+/* Begin XCVersionGroup section */
+		8492FD512B6D8200009BD365 /* FavoriteGamesDataModel.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				8492FD522B6D8200009BD365 /* FavoriteGamesDataModel.xcdatamodel */,
+			);
+			currentVersion = 8492FD522B6D8200009BD365 /* FavoriteGamesDataModel.xcdatamodel */;
+			path = FavoriteGamesDataModel.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+/* End XCVersionGroup section */
 	};
 	rootObject = 84D31C79286CBF83001D1335 /* Project object */;
 }

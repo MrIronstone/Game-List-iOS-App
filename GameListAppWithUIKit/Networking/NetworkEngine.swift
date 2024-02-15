@@ -47,16 +47,30 @@ class NetworkEngine {
             
             guard response != nil, let data = data else { return }
             
+            /*
+            do {
+                let jsonData = try JSONSerialization.jsonObject(with: data, options: .allowFragments)
+                print("Json Fragments Allowed:")
+                print(data)
+            } catch {
+                print("JSONSerialization Error")
+            }
+
+            
+            
             // run in main thread
             DispatchQueue.main.async {
-                if let responseObject = try? JSONDecoder().decode(T.self, from: data) {
-                    //7
-                    completion(.success(responseObject))
-                }
-                else {
-                    let error = NSError(domain: "", code: 200, userInfo: [NSLocalizedDescriptionKey: "Failed to decode response"])
-                    completion(.failure(error))
-                }
+                
+            }
+            */
+            
+            if let responseObject = try? JSONDecoder().decode(T.self, from: data) {
+                //7
+                completion(.success(responseObject))
+            }
+            else {
+                let error = NSError(domain: "", code: 200, userInfo: [NSLocalizedDescriptionKey: "Failed to decode response"])
+                completion(.failure(error))
             }
             
         })

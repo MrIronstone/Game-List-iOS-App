@@ -13,7 +13,6 @@
 		84842710286DFD6B0096611F /* RawgEndpoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8484270F286DFD6B0096611F /* RawgEndpoint.swift */; };
 		84842712286E40CC0096611F /* RawgModels.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84842711286E40CC0096611F /* RawgModels.swift */; };
 		84842716286E7FF60096611F /* CollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84842715286E7FF60096611F /* CollectionViewCell.swift */; };
-		84842721286EC4A30096611F /* HomeProtocols.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84842720286EC4A30096611F /* HomeProtocols.swift */; };
 		84842723286EE0A00096611F /* NetworkEngine.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84842722286EE0A00096611F /* NetworkEngine.swift */; };
 		8484274E2876D8320096611F /* RawgApi.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8484274D2876D8320096611F /* RawgApi.swift */; };
 		8484275028772FA60096611F /* HomeCollectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8484274F28772FA60096611F /* HomeCollectionViewController.swift */; };
@@ -50,7 +49,6 @@
 		8484270F286DFD6B0096611F /* RawgEndpoint.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RawgEndpoint.swift; sourceTree = "<group>"; };
 		84842711286E40CC0096611F /* RawgModels.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RawgModels.swift; sourceTree = "<group>"; };
 		84842715286E7FF60096611F /* CollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CollectionViewCell.swift; sourceTree = "<group>"; };
-		84842720286EC4A30096611F /* HomeProtocols.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeProtocols.swift; sourceTree = "<group>"; };
 		84842722286EE0A00096611F /* NetworkEngine.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkEngine.swift; sourceTree = "<group>"; };
 		8484274D2876D8320096611F /* RawgApi.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RawgApi.swift; sourceTree = "<group>"; };
 		8484274F28772FA60096611F /* HomeCollectionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeCollectionViewController.swift; sourceTree = "<group>"; };
@@ -154,7 +152,6 @@
 				8484275128779EEF0096611F /* HomeInteractor.swift */,
 				8484275328779F350096611F /* HomePresenter.swift */,
 				848427552877ABEE0096611F /* HomeRouter.swift */,
-				84842720286EC4A30096611F /* HomeProtocols.swift */,
 			);
 			path = HomeModule;
 			sourceTree = "<group>";
@@ -309,7 +306,6 @@
 				84A2D8012B7BBC1500D7C87C /* DetailRouter.swift in Sources */,
 				84842712286E40CC0096611F /* RawgModels.swift in Sources */,
 				8439EA542B6A464100ED7616 /* UIImageView+Extension.swift in Sources */,
-				84842721286EC4A30096611F /* HomeProtocols.swift in Sources */,
 				8484275428779F350096611F /* HomePresenter.swift in Sources */,
 				8484275228779EEF0096611F /* HomeInteractor.swift in Sources */,
 				84A2D7FD2B7BBBF200D7C87C /* DetailPresenter.swift in Sources */,

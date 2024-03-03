@@ -22,6 +22,9 @@ protocol HomeViewInterface: AnyObject {
     func loadGames()
     func loadPlatforms()
     
+    func checkFilterCell(at index: IndexPath)
+    func uncheckFiltercell(at index: IndexPath)
+    
     func startAnimating()
     func stopAnimating()
 }
@@ -47,6 +50,16 @@ class HomeViewController: UIViewController {
 }
 
 extension HomeViewController: HomeViewInterface {
+    func checkFilterCell(at index: IndexPath) {
+        guard let cell = filterButtonsCollectionView.cellForItem(at: index) as? FilterCell else { return }
+        cell.setAsSelected()
+    }
+    
+    func uncheckFiltercell(at index: IndexPath) {
+        guard let cell = filterButtonsCollectionView.cellForItem(at: index) as? FilterCell else { return }
+        cell.setAsUnselected()
+    }
+    
     func setupUI() {
         collectionView.delegate = self
         collectionView.dataSource = self
@@ -145,8 +158,8 @@ extension HomeViewController: UICollectionViewDelegate, UICollectionViewDataSour
             if let filterCell = collectionView.dequeueReusableCell(withReuseIdentifier: "FilterCell", for: indexPath) as? FilterCell {
 
                 if let filter = presenter.itemForPlatforms(at: indexPath.row) {
-                    filterCell.setLabel(label: filter.name ?? "N/A")
-                    filterCell.setFilterId(id: filter.id ?? 1)
+                    let presenter = FilterCellPresenter(view: filterCell, platform: filter)
+                    filterCell.configure(presenter: presenter)
                     cell = filterCell
                 }
             }
@@ -155,48 +168,17 @@ extension HomeViewController: UICollectionViewDelegate, UICollectionViewDataSour
         return cell
     }
     
-    /*
-     
     // detail view için
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         if collectionView == self.collectionView {
-            let vc = storyboard?.instantiateViewController(withIdentifier: "DetailViewController") as? DetailViewController
-            
-            let id = gameList.results![indexPath.row].id
-            
-            vc?.gameId = id
-            
-            // vc?.wishlistButtonDelegate = self
-            
-            self.navigationController?.pushViewController(vc!, animated: true)
+            presenter.gameCellTapped(at: indexPath)
         }
         else if collectionView == filterButtonsCollectionView {
-            if let cell = filterButtonsCollectionView.cellForItem(at: indexPath) as? FilterCell {
-                if !isFilterSelected {
-                    isFilterSelected = true
-                    cell.platformLabel.textColor = Colors.wishlistButtonColor.filterGrayColor
-                    cell.backgroundColor = .white
-                    selectedPlatformFilter = String(cell.filterId)
-                    print(selectedPlatformFilter)
-                    // filter uygulama
-                    gameList = RawgGamesResponse(count: 0, previous: "", results: [], next: "")
-                    presenter?.viewGamesBySearchTextAndFilter(searchText: searchedWords, filter: selectedPlatformFilter)
-                    activityIndicator.startAnimating()
-                    
-                } else if isFilterSelected && String(cell.filterId) == selectedPlatformFilter {
-                    isFilterSelected = false
-                    cell.backgroundColor = Colors.wishlistButtonColor.filterGrayColor
-                    cell.platformLabel.textColor = .white
-                    
-                    // filtre kaldırma
-                    gameList = RawgGamesResponse(count: 0, previous: "", results: [], next: "")
-                    presenter?.viewGamesBySearchText(searchText: searchedWords)
-                    activityIndicator.startAnimating()
-                }
+            if filterButtonsCollectionView.cellForItem(at: indexPath) is FilterCell {
+                presenter.filterCellTapped(at: indexPath)
             }
         }
     }
-    */
 }
 
 // MARK: - Search Bar Delegate
@@ -204,7 +186,9 @@ extension HomeViewController: UISearchBarDelegate {
     // bir komut aratılınca
     func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
         let searchedWords = searchBar.text ?? ""
-        presenter?.searchBarSearchButtonClicked(text: searchedWords)
+        presenter.searchBarSearchButtonClicked(text: searchedWords)
+        // search yaptıktan sonra en üste çekmek için
+        self.collectionView.setContentOffset(.zero, animated: true)
     }
 }
 

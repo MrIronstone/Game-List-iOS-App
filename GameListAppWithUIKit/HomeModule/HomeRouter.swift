@@ -9,7 +9,7 @@ import UIKit
 
 
 protocol HomeRouterInterface: AnyObject {
-    func navigateToDetail(withGameId id: Int)
+    func navigateToDetail(arguments: DetailModuleArguments)
 }
 
 final class HomeRouter {
@@ -36,11 +36,12 @@ final class HomeRouter {
 }
 
 extension HomeRouter: HomeRouterInterface {
-    func navigateToDetail(withGameId id: Int) {
-        
+    func navigateToDetail(arguments: DetailModuleArguments) {
         if let navController = navigationController {
-            // let detailView = createDetailModule
-            // navController.pushViewController(detailView, animated: true)
+            let detailView = DetailRouter.createHomeModule(usingNavController: navController, arguments: arguments)
+            navController.pushViewController(detailView, animated: true)
+        } else {
+            print("Navigation Controller is nil")
         }
     }
 }

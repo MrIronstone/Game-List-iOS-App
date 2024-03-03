@@ -14,6 +14,10 @@ protocol HomePresenterInterface: AnyObject {
     func itemForGames(at index: Int) -> RawgGameResponse?
     func itemForPlatforms(at index: Int) -> Platform?
     func wishlistButtonTapped(with gameId: Int)
+    
+    func gameCellTapped(at index: IndexPath)
+    func filterCellTapped(at index: IndexPath)
+    
     func viewDidLoad()
     func searchBarSearchButtonClicked(text: String)
     func willDisplay(at index: Int)
@@ -90,24 +94,76 @@ final class HomePresenter {
 }
 
 extension HomePresenter: HomePresenterInterface {
+    func gameCellTapped(at index: IndexPath) {
+        if let game = itemForGames(at: index.row) {
+            // TODO: Handle coalescing
+            let arguments = DetailModuleArguments(gameId: game.id,
+                                                  gameTitle: game.name ?? "",
+                                                  posterImage: game.background_image ?? "",
+                                                  backdropImage: game.background_image ?? "")
+            router.navigateToDetail(arguments: arguments)
+        }
+    }
+    
+    func filterCellTapped(at index: IndexPath) {
+        
+        guard let results = platformList.results, let filterId = results[index.row].id else { return }
+        
+        if !isFilterSelected {
+            isFilterSelected = true
+            
+            view?.checkFilterCell(at: index)
+            selectedPlatformFilter = String(filterId)
+            
+            /*
+            cell.platformLabel.textColor = Colors.wishlistButtonColor.filterGrayColor
+            cell.backgroundColor = .white
+            selectedPlatformFilter = String(cell.filterId)
+             */
+
+            print(selectedPlatformFilter)
+            // filter uygulama
+            
+            interactor.getGamesBySearchAndFilter(searchText: searchedWords, filter: selectedPlatformFilter)
+            view?.startAnimating()
+            
+        } else if isFilterSelected && String(filterId) == selectedPlatformFilter {
+            isFilterSelected = false
+            
+            view?.uncheckFiltercell(at: index)
+            selectedPlatformFilter = ""
+            
+            /*
+            cell.backgroundColor = Colors.wishlistButtonColor.filterGrayColor
+            cell.platformLabel.textColor = .white
+             */
+            
+            // filtre kaldırma
+            
+            interactor.getGamesBySearchAndFilter(searchText: searchedWords, filter: selectedPlatformFilter)
+            
+            view?.startAnimating()
+        }
+    }
+    
     
     func willDisplay(at index: Int) {
-        if let realGameList = gameList.results {
-            if index > realGameList.count - 4 && !isPageRefreshing {
-                isPageRefreshing = true
-                // bu sayede crash yemeyi engelliyoruz
-                guard let urlToNextPage = gameList.next else {
-                    return
+        if let realGameList = gameList.results, realGameList.count > 0 {
+            if index > realGameList.count - 4 {
+                if !isPageRefreshing {
+                    isPageRefreshing = true
+                    // bu sayede crash yemeyi engelliyoruz
+                    guard let urlToNextPage = gameList.next else {
+                        return
+                    }
+                    view?.startAnimating()
+                    loadNextPage(urlOfNextPage: urlToNextPage)
                 }
-                view?.startAnimating()
-                loadNextPage(urlOfNextPage: urlToNextPage)
             }
         }
     }
     
     func searchBarSearchButtonClicked(text: String) {
-        // ilk önce listeyi boşaltalım
-        gameList = RawgGamesResponse(count: 0, previous: "", results: [], next: "")
         view?.startAnimating()
         interactor.getGamesBySearchAndFilter(searchText: text, filter: selectedPlatformFilter)
     }
@@ -190,38 +246,31 @@ extension HomePresenter: HomeInteractorInterfaceOutput {
     }
     
     func handleNextPageResult(result: GamesResult) {
-        view?.stopAnimating()
-        
-        var oldGames: [RawgGameResponse]?
-        var newGames: [RawgGameResponse]?
-        
-        oldGames = self.gameList.results
-        newGames = gameList.results
-        
-        oldGames?.append(contentsOf: newGames!)
-        
-        let newList = RawgGamesResponse (count: gameList.count,
-                                         previous: gameList.previous,
-                                         results: oldGames,
-                                         next: gameList.next)
-        
-        self.gameList = newList
-        
-        self.isPageRefreshing = false
-        
-        view?.loadGames()
-        view?.stopAnimating()
-        
-        /*
-        // yeni sayfa yükleme harici scroll bar'ı en tepeye alıyor müthiş güzel
-        if(self.isPageRefreshing == false) {
-            self.collectionView.setContentOffset(.zero, animated: true)
+        switch result {
+        case .success(let response):
+            var oldGames = self.gameList.results
+            guard let newGames = response.results else { return }
+            
+            oldGames?.append(contentsOf: newGames)
+            
+            let newList = RawgGamesResponse (count: response.count,
+                                             previous: response.previous,
+                                             results: oldGames,
+                                             next: response.next)
+            
+            self.gameList = newList
+            
+            self.isPageRefreshing = false
+            
+            view?.loadGames()
+            view?.stopAnimating()
+            
+        case .failure(let error):
+            print("Error on handling next page result. \(error.localizedDescription)")
         }
-        */
     }
     
     func handleSingleGameDetails(result: GameResult) {
-        
         view?.stopAnimating()
     }
 }

@@ -22,6 +22,7 @@ protocol DetailPresenterInterface: AnyObject {
     func descriptionTextTapped(numberOfLines: Int)
     func redditButtonTapped()
     func websiteButtonTapped()
+    func checkButtons()
     
     func viewDidLoad()
 }
@@ -30,6 +31,7 @@ final class DetailPresenter {
     private weak var view: DetailViewInterface?
     private let router: DetailRouterInterface
     private let interactor: DetailInteractorInterface
+    private let arguments: DetailModuleArguments
     
     var gameId: Int = 0
 
@@ -37,10 +39,12 @@ final class DetailPresenter {
 
     init(view: DetailViewInterface,
          interactor: DetailInteractorInterface,
-         router: DetailRouterInterface) {
+         router: DetailRouterInterface,
+         arguments: DetailModuleArguments) {
         self.view = view
         self.interactor = interactor
         self.router = router
+        self.arguments = arguments
     }
     
     // açılan oyunun wishlistte olup olmadığını kontrol edip ona göre navBar'daki tuşu boyuyor
@@ -57,6 +61,7 @@ final class DetailPresenter {
         if let photoUrl = gameDetails.background_image {
             if let url = URL(string: photoUrl) {
                 view?.setBackgroundPhoto(photoUrl: url)
+                view?.setBackgroundPhotoVisibility(isHidden: false)
             }
         }
     }
@@ -64,6 +69,7 @@ final class DetailPresenter {
     func prepareReleaseDate() {
         guard let releaseDate = gameDetails.released else { return }
         view?.changeReleaseDateText(text: releaseDate)
+        view?.setReleaseDateTextVisibility(isHidden: false)
     }
     
     func prepareGenres() {
@@ -75,6 +81,7 @@ final class DetailPresenter {
             }
             
             view?.changeGenreSectionText(text: genres.joined(separator: ", "))
+            view?.setGenreSectionVisibility(isHidden: false)
         } else {
             view?.setGenreSectionVisibility(isHidden: true)
         }
@@ -90,75 +97,110 @@ final class DetailPresenter {
                 }
             }
             view?.changePublishersSectionText(text: tempPublishers.joined(separator: ", "))
+            view?.setPublishersSectionVisibility(isHidden: false)
         } else {
             view?.setPublishersSectionVisibility(isHidden: true)
         }
     }
-
     
     func preparePlaytime() {
         if self.gameDetails.playtime == 0 {
             view?.setPlaytimeSectionVisibility(isHidden: true)
         } else {
-            let text = "\(self.gameDetails.playtime) hours"
+            guard let playtime = gameDetails.playtime else { return }
+            let text = "\(playtime) hours"
             view?.changePlaytimeSectionText(text: text)
+            view?.setPlaytimeSectionVisibility(isHidden: false)
         }
     }
     
     func prepareDescription() {
-        
+        if let description = gameDetails.description_raw {
+            view?.changeDescriptionText(text: description)
+            view?.setDescriptionTextLength(numberOfLines: 4)
+            view?.setDescriptionTextVisibility(isHidden: false)
+        } else {
+            view?.setDescriptionTextVisibility(isHidden: true)
+        }
     }
     
     func prepareMetacritic() {
-        metacriticRating.layer.borderWidth = 0.5
-        metacriticRating.layer.cornerRadius = 4
-        metacriticRating.text = String(Int(rating))
+        guard let metacritic = gameDetails.metacritic else { return }
         
-        if ( rating == 0) {
-            metacriticRating.isHidden = true
+        if (metacritic == 0) {
+            view?.setMetacriticSectionVisibility(isHidden: true)
             return
         }
-        
-        if( rating <= 50) {
-            metacriticRating.textColor = UIColor.red
-            metacriticRating.layer.borderColor = UIColor.red.cgColor
+        if(metacritic <= 50) {
+            view?.setMetacriticSection(text: String(Int(metacritic)), color: UIColor.red)
+            view?.setMetacriticSectionVisibility(isHidden: false)
+            return
         }
-        else if ( rating <= 75) {
-            metacriticRating.textColor = UIColor.yellow
-            metacriticRating.layer.borderColor = UIColor.yellow.cgColor
+        else if (metacritic <= 75) {
+            view?.setMetacriticSection(text: String(Int(metacritic)), color: UIColor.yellow)
+            view?.setMetacriticSectionVisibility(isHidden: false)
+            return
         }
         else {
-            metacriticRating.textColor = UIColor.green
-            metacriticRating.layer.borderColor = UIColor.green.cgColor
+            view?.setMetacriticSection(text: String(Int(metacritic)), color: UIColor.green)
+            view?.setMetacriticSectionVisibility(isHidden: false)
+            return
         }
+    }
+    
+    func prepareGameTitle() {
+        if let gameName = gameDetails.name {
+            view?.setGameTitleVisibility(isHidden: false)
+            view?.changeGameTitle(text: gameName)
+        } else {
+            view?.setGameTitleVisibility(isHidden: true)
+        }
+    }
+    
+    func setupUI() {
+        preparePhoto()
+        prepareReleaseDate()
+        prepareGenres()
+        setPublishersSection()
+        preparePlaytime()
+        prepareDescription()
+        prepareGameTitle()
+        prepareMetacritic()
+        view?.setStackViewVisibility(isHidden: false)
     }
 }
 
 extension DetailPresenter: DetailPresenterInterface {
+    func checkButtons() {
+        if gameDetails.website == nil || gameDetails.website == "" {
+            view?.setVisitWebsiteButtonVisibility(isHidden: true)
+        }
+        if gameDetails.reddit_url == nil || gameDetails.reddit_url == "" {
+            view?.setVisitRedditButtonVisibility(isHidden: true)
+        }
+    }
+    
     func descriptionTextTapped(numberOfLines: Int) {
         if (numberOfLines == 0) {
-            view?.changeDescriptionTextLength(numberOfLines: 4)
+            view?.setDescriptionTextLength(numberOfLines: 4)
         }
         else {
-            view?.changeDescriptionTextLength(numberOfLines: 0)
+            view?.setDescriptionTextLength(numberOfLines: 0)
         }
     }
     
     func redditButtonTapped() {
-        if(!visitRedditView.isHidden) {
-            UIApplication.shared.open(URL(string: gameDetails.reddit_url!)!)
-            print("Clicked to Reddit Button")
-        }
+        UIApplication.shared.open(URL(string: gameDetails.reddit_url!)!)
+        print("Clicked to Reddit Button")
     }
     
     func websiteButtonTapped() {
-        if(!visitWebsiteView.isHidden) {
-            UIApplication.shared.open(URL(string: gameDetails.website!)!)
-            print("Clicked to Website Button")
-        }
+        UIApplication.shared.open(URL(string: gameDetails.website!)!)
+        print("Clicked to Website Button")
     }
     
     func wishlistButtonTapped() {
+        /*
         if(isThisGameWishlisted(gameId: self.gameId)){
             removeGameFromWishlist(requestedGameId: self.gameId)
             navBarWishlistButton.tintColor = .white
@@ -185,11 +227,14 @@ extension DetailPresenter: DetailPresenterInterface {
             // wishlist ekranında liste değişimi için bilgi
             NotificationCenter.shared.notifyWishlistScreenAboutChanges()
         }
+        */
     }
     
     func viewDidLoad() {
         view?.startAnimating()
-        interactor.getSingleGameDetails(requestedGameId: self.gameId)
+        view?.setupUI()
+        checkButtons()
+        interactor.getSingleGameDetails(requestedGameId: self.arguments.gameId)
         
         checkIfTheGameIsWishlisted()
         
@@ -203,9 +248,12 @@ extension DetailPresenter: DetailInteractorInterfaceOutput {
         switch result {
         case .success(let response):
             self.gameDetails = response
-            // view?.reloadData tarzı bir şey
+            DispatchQueue.main.async { [weak self] in
+                self?.setupUI()
+                self?.view?.stopAnimating()
+            }
         case .failure(let error):
-            print("Error while handling single game details on DetailPresenter")
+            print("Error while handling single game details on DetailPresenter. \(error.localizedDescription) ")
         }
     }
 }

@@ -7,14 +7,11 @@
 
 import UIKit
 
-class TabBarController: UITabBarController, UITabBarControllerDelegate {
-    
+class TabBarController: UITabBarController {
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        //Assign self for delegate for that ViewController can respond to UITabBarControllerDelegate methods
-        self.delegate = self
-        
+
+        configureViewControllers()
     }
     
     /*
@@ -29,10 +26,13 @@ class TabBarController: UITabBarController, UITabBarControllerDelegate {
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        
+    }
+    
+    private func configureViewControllers() {
         // Create Tab one
         let navController1 = UINavigationController()
         let homeView = HomeRouter.createHomeModule(usingNavController: navController1)
+        navController1.pushViewController(homeView, animated: false)
         let tabOneBarItem = UITabBarItem(title: "Games", image: UIImage(systemName: "gamecontroller"), selectedImage: UIImage(named: "gamecontroller.fill"))
         
         homeView.tabBarItem = tabOneBarItem
@@ -41,11 +41,11 @@ class TabBarController: UITabBarController, UITabBarControllerDelegate {
         // Create Tab two
         let navController2 = UINavigationController()
         let wishlistView = WishlistRouter.createWishlistModule(usingNavController: navController2)
+        navController2.pushViewController(wishlistView, animated: false)
         let tabTwoBarItem2 = UITabBarItem(title: "Wishlist", image: UIImage(systemName: "gift"), selectedImage: UIImage(named: "gift.fill"))
         
         wishlistView.tabBarItem = tabTwoBarItem2
         
-        
-        self.viewControllers = [homeView, wishlistView]
+        self.viewControllers = [navController1, navController2]
     }
 }

@@ -31,16 +31,12 @@ enum RAWGEndpoint: Endpoint {
     
     var path: String {
         switch self {
-        case .getAllGames:
+        case .getAllGames, .getSearchResult, .getResultsOfTextAndFilter:
             return "/api/games"
         case .getGame(let gameId):
             return "/api/games/\(gameId)"
-        case .getSearchResult:
-            return "/api/games"
         case .getAllPlatforms:
             return "/api/platforms/lists/parents"
-        case .getResultsOfTextAndFilter:
-            return "/api/games"
         }
     }
     
@@ -63,8 +59,8 @@ enum RAWGEndpoint: Endpoint {
             return [URLQueryItem(name: "key", value: apiKey)]
         case .getResultsOfTextAndFilter(let text, let parentFilter):
             return [URLQueryItem(name: "key", value: apiKey),
-                    URLQueryItem(name: "parent_platforms", value: parentFilter),
-                    URLQueryItem(name: "search", value: String(text))]
+                    URLQueryItem(name: "search", value: String(text)),
+                    URLQueryItem(name: "parent_platform", value: parentFilter)]
         }
     }
     

@@ -15,16 +15,21 @@ protocol WishlistButtonDelegate: AnyObject {
 
 protocol DetailViewInterface: AnyObject {
     func setupUI()
+
+    func setStackViewVisibility(isHidden: Bool)
     
     func setBackgroundPhoto(photoUrl: URL)
+    func setBackgroundPhotoVisibility(isHidden: Bool)
     
     func changeGameTitle(text: String)
+    func setGameTitleVisibility(isHidden: Bool)
     
     func changeDescriptionText(text: String)
     func setDescriptionTextLength(numberOfLines: Int)
     func setDescriptionTextVisibility(isHidden: Bool)
     
     func changeReleaseDateText(text: String)
+    func setReleaseDateTextVisibility(isHidden: Bool)
     
     func changeGenreSectionText(text: String)
     func setGenreSectionVisibility(isHidden: Bool)
@@ -33,11 +38,15 @@ protocol DetailViewInterface: AnyObject {
     func setPublishersSectionVisibility(isHidden: Bool)
     
     func setMetacriticSection(text: String, color: UIColor)
+    func setMetacriticSectionVisibility(isHidden: Bool)
     
     func changePlaytimeSectionText(text: String)
     func setPlaytimeSectionVisibility(isHidden: Bool)
 
     func changeNavBarButtonColor(color: UIColor)
+    
+    func setVisitWebsiteButtonVisibility(isHidden: Bool)
+    func setVisitRedditButtonVisibility(isHidden: Bool)
         
     func startAnimating()
     func stopAnimating()
@@ -77,10 +86,6 @@ class DetailViewController: UIViewController {
         presenter.viewDidLoad()
     }
     
-    func prepareUI() {
-        addTapGestures()
-    }
-    
     func addTapGestures() {
         let tapOfDescription = UITapGestureRecognizer(target: self, action: #selector(self.handleDescriptionText(_:)))
         descriptionTextView.addGestureRecognizer(tapOfDescription)
@@ -106,100 +111,107 @@ class DetailViewController: UIViewController {
     @objc func handleWebsiteButton(_ sender: UITapGestureRecognizer? = nil) {
         presenter.websiteButtonTapped()
     }
-        
+     
+    /*
     // ui ayarlamarı -async yerde ama-
     func setUI() {
-        
-        setGenresSection(genresArray: gameDetails.genres ?? [Genre]())
-        setPlaytimeSection(playtime: gameDetails.playtime ?? 0)
-        setPublishersSection(publishersArray: gameDetails.publishers ?? [Publisher]())
-        
         if (publishersSection.isHidden == true &&
             genresSection.isHidden == true &&
             releaseDateSection.isHidden == true &&
             playtimeSection.isHidden == true) {
             informationsSection.isHidden = true
         }
-        
-        MetacriticRating(rating: gameDetails.metacritic ?? 0.0)
-     
         checkButtons()
     }
     
     // reddit tuşu ve website tuşu açıp kapamalarını yapıyorum
     func checkButtons() {
-        if gameDetails.website == nil || gameDetails.website == "" {
-            visitWebsiteView.isHidden = true
-        }
-        if gameDetails.reddit_url == nil || gameDetails.reddit_url == "" {
-            visitRedditView.isHidden = true
-        }
+        presenter.checkButtons()
     }
-    
-    // sayfa ilk açılırken lorem ipsum görünmesin diye ui gizli, set işlemleri bitince geri açmak için
-    func MakeUIVisible(){
-        backgroundImage.isHidden = false
-        gameTitleLabel.isHidden = false
-        metacriticRating.isHidden = false
-        stackView.isHidden = false
-    }
+     */
 }
 
 extension DetailViewController: DetailViewInterface {
+    func setStackViewVisibility(isHidden: Bool) {
+        stackView.isHidden = isHidden
+    }
+    
+    func setBackgroundPhotoVisibility(isHidden: Bool) {
+        backgroundImage.isHidden = isHidden
+    }
+    
+    func setGameTitleVisibility(isHidden: Bool) {
+        gameTitleLabel.isHidden = isHidden
+    }
+    
+    func setReleaseDateTextVisibility(isHidden: Bool) {
+        releaseDateText.isHidden = isHidden
+    }
+    
+    func setMetacriticSectionVisibility(isHidden: Bool) {
+        metacriticRating.isHidden = isHidden
+    }
+    
+    func setVisitWebsiteButtonVisibility(isHidden: Bool) {
+        visitWebsiteView.isHidden = isHidden
+    }
+    
+    func setVisitRedditButtonVisibility(isHidden: Bool) {
+        visitRedditView.isHidden = isHidden
+    }
+    
     func changeReleaseDateText(text: String) {
-        <#code#>
+        releaseDateText.text = text
     }
     
     func setBackgroundPhoto(photoUrl: URL) {
-        self.backgroundImage.kf.setImage(with: photoUrl)
+        backgroundImage.kf.setImage(with: photoUrl)
     }
     
     func changeGameTitle(text: String) {
-        self.gameTitleLabel.text = text
+        gameTitleLabel.text = text
     }
     
     func changeDescriptionText(text: String) {
-        <#code#>
+        descriptionText.text = text
     }
     
     func setDescriptionTextLength(numberOfLines: Int) {
-        <#code#>
+        descriptionText.numberOfLines = numberOfLines
     }
     
     func setDescriptionTextVisibility(isHidden: Bool) {
-        <#code#>
+        descriptionText.isHidden = isHidden
     }
     
     func changeGenreSectionText(text: String) {
-        <#code#>
+        genresText.text = text
     }
     
     func setGenreSectionVisibility(isHidden: Bool) {
-        <#code#>
+        genresText.isHidden = isHidden
     }
     
     func changePublishersSectionText(text: String) {
-        <#code#>
+        publishersText.text = text
     }
     
     func setPublishersSectionVisibility(isHidden: Bool) {
-        <#code#>
+        publishersText.isHidden = isHidden
     }
     
     func setMetacriticSection(text: String, color: UIColor) {
-        <#code#>
+        metacriticRating.text = text
+        metacriticRating.textColor = color
+        metacriticRating.layer.borderColor = color.cgColor
     }
     
     func changePlaytimeSectionText(text: String) {
-        <#code#>
+        playtimeText.text = text
     }
     
     func setPlaytimeSectionVisibility(isHidden: Bool) {
-        <#code#>
-    }
-    
-    func changeDescriptionTextLength(numberOfLines: Int) {
-        <#code#>
+        playtimeText.isHidden = isHidden
     }
     
     func changeNavBarButtonColor(color: UIColor) {
@@ -207,19 +219,18 @@ extension DetailViewController: DetailViewInterface {
     }
     
     func setupUI() {
-        <#code#>
+        addTapGestures()
+        
+        metacriticRating.layer.borderWidth = 0.5
+        metacriticRating.layer.cornerRadius = 4
     }
     
     func startAnimating() {
-        DispatchQueue.main.async { [weak self] in
-            self?.activityIndicator.startAnimating()
-        }
+        activityIndicator.startAnimating()
     }
     
     func stopAnimating() {
-        DispatchQueue.main.async { [weak self] in
-            self?.activityIndicator.stopAnimating()
-        }
+        activityIndicator.stopAnimating()
     }
 }
 

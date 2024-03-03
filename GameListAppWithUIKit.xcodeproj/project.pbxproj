@@ -34,6 +34,7 @@
 		84A2D7FD2B7BBBF200D7C87C /* DetailPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84A2D7FC2B7BBBF200D7C87C /* DetailPresenter.swift */; };
 		84A2D7FF2B7BBC0D00D7C87C /* DetailInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84A2D7FE2B7BBC0D00D7C87C /* DetailInteractor.swift */; };
 		84A2D8012B7BBC1500D7C87C /* DetailRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84A2D8002B7BBC1500D7C87C /* DetailRouter.swift */; };
+		84D2DCA52B8A5228007A814C /* FilterCellPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84D2DCA42B8A5228007A814C /* FilterCellPresenter.swift */; };
 		84D31C85286CBF83001D1335 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84D31C84286CBF83001D1335 /* AppDelegate.swift */; };
 		84D31C87286CBF83001D1335 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84D31C86286CBF83001D1335 /* SceneDelegate.swift */; };
 		84D31C89286CBF83001D1335 /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84D31C88286CBF83001D1335 /* HomeViewController.swift */; };
@@ -69,6 +70,7 @@
 		84A2D7FC2B7BBBF200D7C87C /* DetailPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailPresenter.swift; sourceTree = "<group>"; };
 		84A2D7FE2B7BBC0D00D7C87C /* DetailInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailInteractor.swift; sourceTree = "<group>"; };
 		84A2D8002B7BBC1500D7C87C /* DetailRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailRouter.swift; sourceTree = "<group>"; };
+		84D2DCA42B8A5228007A814C /* FilterCellPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FilterCellPresenter.swift; sourceTree = "<group>"; };
 		84D31C81286CBF83001D1335 /* GameListAppWithUIKit.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = GameListAppWithUIKit.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		84D31C84286CBF83001D1335 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		84D31C86286CBF83001D1335 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -110,6 +112,7 @@
 				84842715286E7FF60096611F /* CollectionViewCell.swift */,
 				844165B32B7130F000ED0E92 /* CollectionViewCellPresenter.swift */,
 				849D38DF288D9B6800609C31 /* FilterCell.swift */,
+				84D2DCA42B8A5228007A814C /* FilterCellPresenter.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -300,6 +303,7 @@
 				84A2D7FF2B7BBC0D00D7C87C /* DetailInteractor.swift in Sources */,
 				848427562877ABEE0096611F /* HomeRouter.swift in Sources */,
 				84D31C89286CBF83001D1335 /* HomeViewController.swift in Sources */,
+				84D2DCA52B8A5228007A814C /* FilterCellPresenter.swift in Sources */,
 				849D38D52889B5CB00609C31 /* WishlistViewController.swift in Sources */,
 				84A2D7F72B74489500D7C87C /* WishlistInteractor.swift in Sources */,
 				849D38DE288CADB300609C31 /* NotificationCenter.swift in Sources */,

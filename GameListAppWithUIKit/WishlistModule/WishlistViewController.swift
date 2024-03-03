@@ -37,7 +37,7 @@ extension WishlistViewController: UICollectionViewDelegate, UICollectionViewData
         
         guard let item = presenter.item(at: indexPath.row) else { return }
         
-        vc?.gameId = item.id
+        // vc?.gameId = item.id
         
         // wishlist button delegate
         //vc?.wishlistButtonDelegate = self

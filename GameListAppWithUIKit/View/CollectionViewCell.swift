@@ -20,7 +20,7 @@ extension CollectionViewCell {
 
 protocol CollectionViewCellInterface: AnyObject {
     func setGameTitle(_ title: String)
-    func setBackgroundImage(_ photoUrl: String)
+    func setBackgroundImage(_ photoUrl: URL?)
     func changeTitleColorToViewed()
     func assignButtonTag(gameId: Int)
     func changeFavButtonColorToGray()
@@ -69,9 +69,8 @@ extension CollectionViewCell: CollectionViewCellInterface {
         gameTitle.text = title
     }
     
-    func setBackgroundImage(_ photoUrl: String) {
-        let url = URL(string: photoUrl)
-        self.backgroundImage.kf.setImage(with: url)
+    func setBackgroundImage(_ photoUrl: URL?) {
+        self.backgroundImage.kf.setImage(with: photoUrl)
     }
     
     func prepareUI() {

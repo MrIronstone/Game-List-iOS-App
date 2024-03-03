@@ -25,7 +25,7 @@ final class CollectionViewCellPresenter {
     }
     private func configureCell() {
         view?.setGameTitle(game.name ?? "")
-        view?.setBackgroundImage(game.background_image ?? "")
+        setBackgroundImage()
         view?.prepareUI()
     }
     
@@ -38,6 +38,21 @@ final class CollectionViewCellPresenter {
             ViewedGames.shared.viewedGames.append(game.id)
         }
         view?.changeTitleColorToViewed()
+    }
+    
+    func setBackgroundImage() {
+        guard let background_image = game.background_image else { return }
+        
+        let components = background_image.components(separatedBy: "media/games/")
+
+        if components.count == 2 {
+            let modifiedURL = components[0] + "media/crop/600/400/games/" + components[1]
+            let url = URL(string: modifiedURL)
+            view?.setBackgroundImage(url)
+        } else {
+            let url = URL(string: background_image)
+            view?.setBackgroundImage(url)
+        }
     }
     
     func checkIfItIsViewed() {
